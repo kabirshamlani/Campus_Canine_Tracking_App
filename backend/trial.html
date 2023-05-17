@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;400;700;900&display=swap" rel="stylesheet" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+
+  <script>
+    function handle_Change() {
+      alert("inside function");
+      console.log(":)(_(((((((((((((())))))))))))))) text =  ", document.getElementById("myFile"));
+    }
+
+    // $("#file").change(function() {
+    //   console.log(":)))(((((((((()))))))))) text = ", document.getElementById("myFile"));
+    // })
+    
+
+    document.getElementById("myFile").onchange = function() {
+      console.log(":)))(((((((((()))))))))) text = ", document.getElementById("myFile"));
+    }
+  </script>
+
+
+  <script>
+    const handleClick = async (event) => {
+      event.preventDefault()
+      console.log("jdajvbbujovfhfvbffuovuf");
+
+
+
+      let file = document.getElementById("myFile");
+      try {
+        let result = await axios({
+          method: "POST",
+          url: "http://127.0.0.1:10000/api/file_upload",
+        });
+        let files = result.data.data;
+        files.forEach((file) => {
+          let creation_time = dateFromObjectId(file._id);
+          markup = `
+          <div class="files__entity">
+            <i class="files__icon fa fa-file-text" aria-hidden="true"></i>
+            <span class="files__date">Date created:- ${creation_time}</span>
+            <a href="${file.name}" class="files__link"><i class="fa fa-eye tests__icon" aria-hidden="true"></i></a>
+          </div>
+        `;
+          // parentDiv.insertAdjacentHTML("beforeend", markup);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  </script>
+
+  <!-- style.css file path in the line below. -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="./multer_test.css" />
+  <!-- -------------------------------------- -->
+
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./multer_test.js"></script>
+
+  <title>Multer Tutorial</title>
+</head>
+
+<body>
+  <main class="admin">
+    <div class="admin__upload-file">
+      <form onsubmit={handleClick(e)}>
+        <input type="file" class="admin__input" id="myFile" name="myFile"></input>
+        <!-- <input type="file" class="admin__input" id="myFile" name="myFile" onload={handle_Change}></input> -->
+        <button class="admin__submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>

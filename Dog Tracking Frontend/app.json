@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "canine",
+    "slug": "canine", 
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./app/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./app/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./app/assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff",
+        "userInterfaceStyle": "dark"
+      }
+    },
+    "web": {
+      "favicon": "./app/assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "16981bf3-306e-4d43-abb8-3972e042b7b7"
+      }
+    },
+    "owner": "kabirshamlani"
+  }
+}
